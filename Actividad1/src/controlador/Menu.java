@@ -32,8 +32,9 @@ public class Menu{
 			System.out.println("	2. Borrar coche por id");
 			System.out.println("	3. Consultar coche por id");
 			System.out.println("	4. Listado de coches");
-			System.out.println("	5. Terminar programa\n");
-			System.out.println("Elija una opción del 1 al 5 -> ");
+			System.out.println("	5. Terminar programa");
+			System.out.println("	6. Exportar coches a archivo de texto\n");
+			System.out.println("Elija una opción del 1 al 6 -> ");
 
 			// Lectura de la elección del usuario			
 			opcion = sc.nextLine();
@@ -91,11 +92,16 @@ public class Menu{
 					e.printStackTrace();
 				}
 				
-				System.out.println("Programa cerrado");
+				System.out.println("Aplicación cerrada");
 				System.exit(0);
 
+			case "6":				
+				System.out.println("Exportando coches a fichero de texto \"coches.txt\"...");
+				almacen.export();				
+				break;
+				
 			default:
-				System.out.println("Capullín, debes introducir un número del 1 al 5\n");				
+				System.out.println("Capullín, debes introducir un número del 1 al 6.");				
 			}
 		}
 

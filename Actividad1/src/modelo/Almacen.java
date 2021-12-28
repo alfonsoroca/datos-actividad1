@@ -1,5 +1,8 @@
 package modelo;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,6 +100,30 @@ public class Almacen implements Serializable {
 				System.out.println("	" + c);
 			}
 			System.out.println("Listado de coches en el almacén finalizado.");
+		}
+	}
+
+	/**
+	 * Método que exporta los coches del almacén al fichero "coches.txt" 
+	 */
+	public void export() {
+		try (FileWriter archivo = new FileWriter("coche.txt"); BufferedWriter bw = new BufferedWriter(archivo);){
+			
+			// Recorremos el almacén incorporando al buffer los coches con el formato indicado
+			for (Coche c : almacen) {
+				String cocheTexto = (c.getId()+ "-" + c.getMatricula() + "-" + c.getMarca() + "-" + c.getModelo() + "-" + c.getColor());
+				System.out.println("Exportando-> " + cocheTexto);
+				bw.write(cocheTexto);
+				bw.newLine();
+			}
+			
+			// Escribimos los datos del buffer en el fichero
+			bw.flush();
+			System.out.println("Exportación de coches finalizada");
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
