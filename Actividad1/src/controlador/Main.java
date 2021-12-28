@@ -12,23 +12,23 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Almacen almacen = null;
+		Almacen almacen = new Almacen();;
 		// Gestión del fichero coches.dat
 		File fichero = new File("coches.dat");
 
 		System.out.println("Iniciando aplicación....");
 		System.out.println("Creando almacén....");
 		System.out.println("Almacén creado.");
-		almacen = new Almacen();
-
+		
 		// Lógica que importa los datos al almacén cuando existe el fichero coches.dat.
 		if (fichero.exists()) {
 
 			try (FileInputStream fis = new FileInputStream(fichero);
 					ObjectInputStream ois = new ObjectInputStream(fis)) {
 
-				System.out.println("Importando datos al almacén.....");
+				System.out.println("Importando datos desde el almacén.....");
 				almacen = (Almacen) ois.readObject();
+				System.out.println("Importación de datos completada.");
 
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
