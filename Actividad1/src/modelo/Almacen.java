@@ -119,7 +119,7 @@ public class Almacen implements Serializable {
 			
 			// Escribimos los datos del buffer en el fichero
 			bw.flush();
-			System.out.println("Exportación de coches finalizada");
+			System.out.println("Exportación de coches finalizada.");
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

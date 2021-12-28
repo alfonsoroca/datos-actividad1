@@ -92,7 +92,7 @@ public class Menu{
 					e.printStackTrace();
 				}
 				
-				System.out.println("Aplicación cerrada");
+				System.out.println("Aplicación cerrada---------------");
 				System.exit(0);
 
 			case "6":				
