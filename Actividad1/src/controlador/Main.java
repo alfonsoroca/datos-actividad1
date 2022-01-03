@@ -38,8 +38,8 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
-
-		// Asociamos el almacén al menu.
-		Menu menu = new Menu(almacen);
+		
+		// Asignación del almacen al menu
+		new Menu(almacen);
 	}
 }

@@ -92,6 +92,9 @@ public class Menu{
 					e.printStackTrace();
 				}
 				
+				// Cierre del scanner
+				sc.close();
+				
 				System.out.println("Aplicación cerrada---------------");
 				System.exit(0);
 
@@ -103,9 +106,6 @@ public class Menu{
 			default:
 				System.out.println("Capullín, debes introducir un número del 1 al 6.");				
 			}
-		}
-
-		// Cierre del scanner
-		sc.close();
+		}		
 	}
 }

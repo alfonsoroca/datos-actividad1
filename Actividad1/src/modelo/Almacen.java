@@ -12,7 +12,7 @@ public class Almacen implements Serializable {
 
 	private static final long serialVersionUID = 2471564759041568181L;
 
-	List<Coche> almacen = new ArrayList<>();
+	private List<Coche> almacen = new ArrayList<>();
 
 	/**
 	 * Método que añade coche al almacén siempre que no existan duplicidades de id o
@@ -122,7 +122,6 @@ public class Almacen implements Serializable {
 			System.out.println("Exportación de coches finalizada.");
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
