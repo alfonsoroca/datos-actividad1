@@ -12,7 +12,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Almacen almacen = new Almacen();;
+		Almacen almacen = new Almacen();
 		// Gestión del fichero coches.dat
 		File fichero = new File("coches.dat");
 

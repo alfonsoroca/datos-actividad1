@@ -58,7 +58,7 @@ public class Almacen implements Serializable {
 				break;
 			}
 		}
-
+		
 		// Lógica de eliminación del coche
 		if (cocheEliminar != null) {
 			almacen.remove(cocheEliminar);
@@ -119,8 +119,8 @@ public class Almacen implements Serializable {
 			
 			// Escribimos los datos del buffer en el fichero
 			bw.flush();
-			System.out.println("Exportación de coches finalizada.");
-			
+			System.out.println("Exportación de coches finalizada.");			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
