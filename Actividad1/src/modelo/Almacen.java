@@ -7,7 +7,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-//Clase que define los atributos y métodos del objeto almacen e implementa Serializable.
+/**
+ * Clase que define los atributos y métodos del objeto almacen e implementa
+ * Serializable.
+ * 
+ * @since 26.12.2021
+ */
 public class Almacen implements Serializable {
 
 	private static final long serialVersionUID = 2471564759041568181L;
@@ -58,7 +63,7 @@ public class Almacen implements Serializable {
 				break;
 			}
 		}
-		
+
 		// Lógica de eliminación del coche
 		if (cocheEliminar != null) {
 			almacen.remove(cocheEliminar);
@@ -104,22 +109,24 @@ public class Almacen implements Serializable {
 	}
 
 	/**
-	 * Método que exporta los coches del almacén al fichero "coches.txt" 
+	 * Método que exporta los coches del almacén al fichero "coches.txt"
 	 */
 	public void export() {
-		try (FileWriter archivo = new FileWriter("coche.txt"); BufferedWriter bw = new BufferedWriter(archivo);){
-			
-			// Recorremos el almacén incorporando al buffer los coches con el formato indicado
+		try (FileWriter archivo = new FileWriter("coche.txt"); BufferedWriter bw = new BufferedWriter(archivo);) {
+
+			// Recorremos el almacén incorporando al buffer los coches con el formato
+			// indicado
 			for (Coche c : almacen) {
-				String cocheTexto = (c.getId()+ "-" + c.getMatricula() + "-" + c.getMarca() + "-" + c.getModelo() + "-" + c.getColor());
+				String cocheTexto = (c.getId() + "-" + c.getMatricula() + "-" + c.getMarca() + "-" + c.getModelo() + "-"
+						+ c.getColor());
 				System.out.println("Exportando-> " + cocheTexto);
 				bw.write(cocheTexto);
 				bw.newLine();
 			}
-			
+
 			// Escribimos los datos del buffer en el fichero
 			bw.flush();
-			System.out.println("Exportación de coches finalizada.");			
+			System.out.println("Exportación de coches finalizada.");
 
 		} catch (IOException e) {
 			e.printStackTrace();

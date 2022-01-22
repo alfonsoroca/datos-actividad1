@@ -6,9 +6,7 @@ import java.io.Serializable;
  * Clase que define los atributos y métodos del objeto coche e implementa
  * Serializable.
  * 
- * @author jalfonso
  * @since 26.12.2021
- *
  */
 public class Coche implements Serializable {
 

@@ -11,20 +11,22 @@ import modelo.Almacen;
 import modelo.Coche;
 
 /**
- * Clase que define los atributos y métodos del objeto menu.
- * @author jalfonso
+ * Clase que define los atributos y métodos del objeto menu que sirven para
+ * interactuar con el usuario de la aplicación.
+ * 
  * @since 26.12.2021
  */
-public class Menu{		
+public class Menu {
 
 	public Menu(Almacen almacen) {
-				
+
 		Scanner sc = new Scanner(System.in);
 		String opcion = "";
-		
+
+		// Mediante un bucle while gestionamos la interacción con el usuario
 		while (!opcion.equalsIgnoreCase("5")) {
 
-			// Opciones del menú
+			// Opciones que puede seleccionar el usuario
 			System.out.println("\n***************************************");
 			System.out.println("---------Almacén concesionario---------");
 			System.out.println("***************************************");
@@ -36,10 +38,11 @@ public class Menu{
 			System.out.println("	6. Exportar coches a archivo de texto\n");
 			System.out.println("Elija una opción del 1 al 6 -> ");
 
-			// Lectura de la elección del usuario			
+			// Lectura de la elección del usuario
 			opcion = sc.nextLine();
 
-			// Gestión de la elección del usuario en base a los requerimientos
+			// Gestión de la elección del usuario en base a los requerimientos de la
+			// aplicación
 			switch (opcion) {
 			case "1":
 
@@ -65,47 +68,48 @@ public class Menu{
 				break;
 
 			case "3":
-				
+
 				System.out.println("Introduce el id del coche que quieres obtener...");
 				almacen.getById(sc.nextLine());
 				break;
 
-			case "4":				
+			case "4":
 				System.out.println("Listado de coches en el almacén...");
 				almacen.lista();
 				break;
-				
-			case "5":				
+
+			case "5":
 				System.out.println("Grabando datos y saliendo....");
-				
-				// Proceso de persistencia de datos.
+
+				// Proceso de persistencia de datos del objeto almacen en el fichero
+				// "coches.dat".
 				File fichero = new File("coches.dat");
 				try (FileOutputStream fos = new FileOutputStream(fichero);
-				ObjectOutputStream oos = new ObjectOutputStream(fos);){
-					
+						ObjectOutputStream oos = new ObjectOutputStream(fos);) {
+
 					oos.writeObject(almacen);
 					System.out.println("Datos grabados....");
-					
+
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				
+
 				// Cierre del scanner
 				sc.close();
-				
+
 				System.out.println("Aplicación cerrada---------------");
 				System.exit(0);
 
-			case "6":				
-				System.out.println("Exportando coches a fichero de texto \"coches.txt\"...");
-				almacen.export();				
+			case "6":
+				System.out.println("Exportando coches a fichero de texto \"coche.txt\"...");
+				almacen.export();
 				break;
-				
+
 			default:
-				System.out.println("Capullín, debes introducir un número del 1 al 6.");				
+				System.out.println("Capullín, debes introducir un número del 1 al 6.");
 			}
-		}		
+		}
 	}
 }
